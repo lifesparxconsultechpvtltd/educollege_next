@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Section from '../common/section-wrapper';
 import { programs } from '../data/hero.data';
 
@@ -18,7 +19,7 @@ export default function ProgramSection() {
                                 Discover our wide range of programs
                             </p>
                             <p className="mt-4 text-base text-gray-700">
-                                We offer a variety of programs to suit your needs. Whether you're looking to learn a new skill or advance your career.
+                                We offer a variety of programs to suit your needs. Whether you&apos;re looking to learn a new skill or advance your career.
                             </p>
                             <dl className="mt-8 max-w-xl space-y-6 text-base text-gray-600 lg:max-w-none">
                                 {programs.map((feature) => (
@@ -34,9 +35,9 @@ export default function ProgramSection() {
                         </div>
                     </div>
                     <div className="flex items-center justify-center lg:justify-end">
-                        <img
+                        <Image
                             alt="Product screenshot"
-                            src="https://tailwindcss.com/plus-assets/img/component-images/project-app-screenshot.png"
+                            src="https://tailwindcss.com/plus-assets/Image/component-images/project-app-screenshot.png"
                             width={2432}
                             height={1442}
                             className="w-full max-w-md rounded-none shadow-xl ring-1 ring-gray-400/10"

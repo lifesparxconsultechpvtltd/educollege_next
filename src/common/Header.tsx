@@ -5,6 +5,7 @@ import { navigation } from "../data/hero.data";
 import { useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,14 +14,14 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-gray-200/70 backdrop-blur-md">
       <nav
         aria-label="Global"
-        className="flex items-center justify-between p-6 lg:px-8 max-w-6xl mx-auto"
-        >
+        className="flex items-center justify-between p-6 lg:px-8 max-w-6xl mx-auto">
+      
         {/* --- Logo --- */}
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-x-2 font-bold text-xl">
-            <img
+            <Image
               alt="logo"
-              src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+              src="https://tailwindcss.com/plus-assets/Image/logos/mark.svg?color=indigo&shade=600"
               className="h-8 w-auto"
             /> 
             <span className="text-2xl text-indigo-700">Educollege</span>
@@ -70,9 +71,9 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
+              <Image
                 alt=""
-                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+                src="https://tailwindcss.com/plus-assets/Image/logos/mark.svg?color=indigo&shade=600"
                 className="h-8 w-auto"
               />
             </Link>

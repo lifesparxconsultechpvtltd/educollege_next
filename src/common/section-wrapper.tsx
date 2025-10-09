@@ -16,7 +16,6 @@ interface SectionWrapperProps {
 export default function Section({
   children,
   className = '',
-  disablePadding = false,
   customPaddings = false,
   crosses = false,
   crossesOffset = '',

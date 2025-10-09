@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { universitiesPage, UniversitiesPageData } from "@/src/data/pages/university.data";
 import Section from "@/src/common/section-wrapper";
 import Link from "next/link";
+import Image from 'next/image';
 
 export default function UniversityDirectory() {
     const [selectedUniversity, setSelectedUniversity] = useState<UniversitiesPageData>(universitiesPage[0]);
@@ -98,7 +99,7 @@ export default function UniversityDirectory() {
                             {/* Hero Section */}
                             <div className="relative h-72 overflow-hidden bg-white border border-slate-200 rounded-none shadow-sm">
                                 {selectedUniversity.image && (
-                                    <img
+                                    <Image
                                         src={selectedUniversity.image}
                                         alt={selectedUniversity.name}
                                         className="w-full h-full object-cover"
@@ -111,7 +112,7 @@ export default function UniversityDirectory() {
                                 <div className="absolute bottom-0 left-0 right-0 px-8 pb-6">
                                     <div className="flex items-end gap-4">
                                         <div className="w-16 h-16 rounded-lg shadow-sm flex items-center justify-center border border-slate-200/20 backdrop-blur-sm">
-                                            <img src={selectedUniversity.icon} alt={selectedUniversity.name} className="w-12 h-12 object-cover" />
+                                            <Image src={selectedUniversity.icon} alt={selectedUniversity.name} className="w-12 h-12 object-cover" />
                                         </div>
                                         <div className="pb-1">
                                             <h1 className="text-xl font-semibold text-white drop-shadow-sm">

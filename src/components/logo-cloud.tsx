@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Section from "../common/section-wrapper";
 
 const LOGOS = [
@@ -40,7 +41,7 @@ export default function LogoCloud() {
                             key={logo.name}
                             className="group flex justify-center items-center transition-transform duration-300 hover:scale-105"
                         >
-                            <img
+                            <Image
                                 src={logo.gray}
                                 alt={logo.name}
                                 className="max-h-10 w-auto object-contain transition-opacity duration-300"

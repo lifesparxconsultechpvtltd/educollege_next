@@ -1,4 +1,4 @@
-import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon, ServerIcon } from "@heroicons/react/24/outline"
+import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from "@heroicons/react/24/outline"
 
 export const navigation = [
   { name: 'Home', href: '/' },
