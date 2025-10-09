@@ -103,6 +103,7 @@ export default function UniversityDirectory() {
                                         src={selectedUniversity.image}
                                         alt={selectedUniversity.name}
                                         className="w-full h-full object-cover"
+                                        width={800} height={400}
                                     />
                                 )}
 
@@ -112,7 +113,7 @@ export default function UniversityDirectory() {
                                 <div className="absolute bottom-0 left-0 right-0 px-8 pb-6">
                                     <div className="flex items-end gap-4">
                                         <div className="w-16 h-16 rounded-lg shadow-sm flex items-center justify-center border border-slate-200/20 backdrop-blur-sm">
-                                            <Image src={selectedUniversity.icon} alt={selectedUniversity.name} className="w-12 h-12 object-cover" />
+                                            <Image src={selectedUniversity.icon} alt={selectedUniversity.name} className="w-12 h-12 object-cover" width={48} height={48} />
                                         </div>
                                         <div className="pb-1">
                                             <h1 className="text-xl font-semibold text-white drop-shadow-sm">

@@ -37,7 +37,7 @@ export default function ProgramSection() {
                     <div className="flex items-center justify-center lg:justify-end">
                         <Image
                             alt="Product screenshot"
-                            src="https://tailwindcss.com/plus-assets/Image/component-images/project-app-screenshot.png"
+                            src={''}
                             width={2432}
                             height={1442}
                             className="w-full max-w-md rounded-none shadow-xl ring-1 ring-gray-400/10"

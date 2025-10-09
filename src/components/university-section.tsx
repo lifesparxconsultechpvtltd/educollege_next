@@ -33,7 +33,7 @@ export default function UniversitySection() {
                 >
                 {/* Logo/Icon */}
                 <div className="flex items-center justify-center w-12 h-12 rounded-lg border border-gray-200 mb-4 relative z-10">
-                  <Image src={university[0].icon} alt={university[0].name} className='w-8 h-8' />
+                  <Image src={university[0].icon} alt={university[0].name} className='w-8 h-8' width={32} height={32} />
                 </div>
 
                 {/* Gradient overlay for better readability */}
@@ -49,7 +49,7 @@ export default function UniversitySection() {
               {/* Top-Right — Small Card */}
               <div className="lg:col-span-1 border rounded-none p-6 flex flex-col justify-end h-[280px] lg:h-[320px]">
                 <div className="flex items-center justify-center w-12 h-12 rounded-lg border border-gray-200 mb-4">
-                  <Image src={university[1].icon} alt={university[1].name} className='w-8 h-8' />
+                  <Image src={university[1].icon} alt={university[1].name} className='w-8 h-8' width={20} height={20} />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{university[1].name}</h3>
                 <p className="text-sm text-gray-600">{university[1].description}</p>
@@ -58,7 +58,7 @@ export default function UniversitySection() {
               {/* Bottom-Left — Small Card */}
               <div className="lg:col-span-1 border rounded-none p-6 flex flex-col justify-end h-[280px] lg:h-[320px]">
                 <div className="flex items-center justify-center w-12 h-12 rounded-lg border border-gray-200 mb-4">
-                  <Image src={university[2].icon} alt={university[2].name} className='w-8 h-8'/>
+                  <Image src={university[2].icon} alt={university[2].name} className='w-8 h-8' width={32} height={32}/>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{university[2].name}</h3>
                 <p className="text-sm text-gray-600">{university[2].description}</p>
@@ -67,7 +67,7 @@ export default function UniversitySection() {
               {/* Bottom-Right — Large Card */}
               <div className="lg:col-span-2 border rounded-none p-8 flex flex-col justify-end h-[280px] lg:h-[320px]">
                 <div className="flex items-center justify-center w-12 h-12 rounded-lg border border-gray-200 mb-4">
-                  <Image src={university[3].icon} alt={university[3].name} className='w-8 h-8' />
+                  <Image src={university[3].icon} alt={university[3].name} className='w-8 h-8' width={20} height={20}  />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{university[3].name}</h3>
                 <p className="text-sm text-gray-600 mb-4">{university[3].description}</p>

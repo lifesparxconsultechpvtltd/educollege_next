@@ -40,12 +40,13 @@ export default function LogoCloud() {
                         <div
                             key={logo.name}
                             className="group flex justify-center items-center transition-transform duration-300 hover:scale-105"
-                        >
+                            >
                             <Image
                                 src={logo.gray}
                                 alt={logo.name}
                                 className="max-h-10 w-auto object-contain transition-opacity duration-300"
-                            />
+                                width={158} height={48}
+                            />                            
                         </div>
                     ))}
                 </div>
