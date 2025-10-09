@@ -39,7 +39,7 @@ export default function ProgramSection() {
                             src="https://tailwindcss.com/plus-assets/img/component-images/project-app-screenshot.png"
                             width={2432}
                             height={1442}
-                            className="w-full max-w-md rounded-xl shadow-xl ring-1 ring-gray-400/10"
+                            className="w-full max-w-md rounded-none shadow-xl ring-1 ring-gray-400/10"
                         />
                     </div>
                 </div>

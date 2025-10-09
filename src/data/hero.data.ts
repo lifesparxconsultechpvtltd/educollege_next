@@ -8,32 +8,70 @@ export const navigation = [
   { name: 'Compare', href: '/compare' },
 ]
 
-export const features = [
-  {
-    name: 'Push to deploy',
-    description:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
-    icon: CloudArrowUpIcon,
-  },
-  {
-    name: 'SSL certificates',
-    description:
-      'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
-    icon: LockClosedIcon,
-  },
-  {
-    name: 'Simple queues',
-    description:
-      'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
-    icon: ArrowPathIcon,
-  },
-  {
-    name: 'Advanced security',
-    description:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua,',
-    icon: FingerPrintIcon,
-  },
-]
+interface Universities {
+    name: string;
+    description: string;
+    icon: string;
+    location: string;
+    naac: string;
+    programs: string;
+    established: string;
+    address: string;
+    highlights: string;
+    image: string;
+}
+
+
+export const university: Universities[] = [
+    {
+        name: 'Lovely Professional University (LPU)',
+        description: 'One of India’s top private universities known for innovation and diversity.',
+        icon: 'https://s3-alpha.figma.com/hub/file/2747156395/33996b80-ff35-4d84-b296-230aa5ac11a5-cover.png',
+        location: 'Phagwara, Punjab',
+        naac: 'A++',
+        programs: 'Engineering, Management, Law, Design, Agriculture, Arts, and more',
+        established: '2005',
+        address: 'Jalandhar-Delhi G.T. Road, Phagwara, Punjab 144411',
+        highlights: '600-acre campus, 300+ programs, 200+ international tie-ups',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR7aVT5kP1HKTbeijHy77_pPpSF9ozOgmcnQ&s'
+    },
+    {
+        name: 'Amity University',
+        description: 'Leading private research university with global campuses and strong industry ties.',
+        icon: 'https://s3-alpha.figma.com/hub/file/2747156395/33996b80-ff35-4d84-b296-230aa5ac11a5-cover.png',
+        location: 'Noida, Uttar Pradesh',
+        naac: 'A+',
+        programs: 'Engineering, Business, Law, Biotechnology, Media, and more',
+        established: '2005',
+        address: 'Sector 125, Noida, Uttar Pradesh 201313',
+        highlights: 'Modern infrastructure, innovation-driven, strong global network',
+        image: ''
+    },
+    {
+        name: 'Manipal Academy of Higher Education (MAHE)',
+        description: 'A Deemed University recognized internationally for excellence in education and research.',
+        icon: 'https://s3-alpha.figma.com/hub/file/2747156395/33996b80-ff35-4d84-b296-230aa5ac11a5-cover.png',
+        location: 'Manipal, Karnataka',
+        naac: 'A++',
+        programs: 'Health Sciences, Engineering, Management, Humanities, and more',
+        established: '1953',
+        address: 'Tiger Circle Road, Manipal, Karnataka 576104',
+        highlights: 'Top-ranked globally, diverse student body, strong research culture',
+        image: ''
+    },
+    {
+        name: 'SRM Institute of Science and Technology',
+        description: 'Premier institute fostering innovation and high-quality research in multiple disciplines.',
+        icon: 'https://s3-alpha.figma.com/hub/file/2747156395/33996b80-ff35-4d84-b296-230aa5ac11a5-cover.png',
+        location: 'Kattankulathur, Tamil Nadu',
+        naac: 'A++',
+        programs: 'Engineering, Medicine, Management, Law, Science, and Humanities',
+        established: '1985',
+        address: 'SRM Nagar, Kattankulathur, Chengalpattu, Tamil Nadu 603203',
+        highlights: 'Global collaborations, modern campus, excellent placements',
+        image: ''
+    },
+];
 
 
 export const programs = [

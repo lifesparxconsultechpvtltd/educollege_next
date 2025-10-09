@@ -1,3 +1,4 @@
+import Section from "@/src/common/section-wrapper";
 
 
 const SITEMAP = [
@@ -23,8 +24,13 @@ const currentYear = new Date().getFullYear();
 
 export default function Footer() {
     return (
-        <footer className="py-16 sm:py-16">
-            <div className="mx-auto max-w-7xl px-8">
+        <Section className="py-24 sm:py-8"
+                 crosses
+                 crossesOffset="lg:translate-y-0"
+                 customPaddings
+                 id="footer"
+                 >
+            <div className="mx-auto max-w-6xl px-8">
                 <div className="mx-auto grid w-full grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-4">
                     {SITEMAP.map(({ title, links }, key) => (
                         <div key={key} className="w-full">
@@ -96,7 +102,7 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-        </footer>
+        </Section>
     );
 }
 

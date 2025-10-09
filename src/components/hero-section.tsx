@@ -15,7 +15,7 @@ export default function Hero() {
                 <div
                     aria-hidden="true"
                     className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-                >
+                    >
                     <div
                         style={{
                             clipPath:
@@ -29,7 +29,7 @@ export default function Hero() {
                 <div className="mx-auto max-w-4xl mb-16">
                     {/* Announcement Badge */}
                     <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                        <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 transition-all duration-300">
+                        <div className="relative rounded-none px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 transition-all duration-300">
                             Explore programs & universities.{' '}
                             <Link href="/programs" className="font-semibold text-indigo-600 hover:text-indigo-500">
                                 <span aria-hidden="true" className="absolute inset-0" />
@@ -51,7 +51,7 @@ export default function Hero() {
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <Link
                                 href="#"
-                                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline  focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors duration-200"
+                                className="rounded-none bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline  focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors duration-200"
                             >
                                 Get started
                             </Link>

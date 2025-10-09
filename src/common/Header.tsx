@@ -13,7 +13,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-gray-200/70 backdrop-blur-md">
       <nav
         aria-label="Global"
-        className="flex items-center justify-between p-6 lg:px-8 max-w-5xl mx-auto"
+        className="flex items-center justify-between p-6 lg:px-8 max-w-6xl mx-auto"
         >
         {/* --- Logo --- */}
         <div className="flex lg:flex-1">
