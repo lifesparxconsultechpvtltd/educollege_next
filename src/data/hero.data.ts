@@ -26,50 +26,50 @@ export const university: Universities[] = [
     {
         name: 'Lovely Professional University (LPU)',
         description: 'One of India’s top private universities known for innovation and diversity.',
-        icon: 'https://s3-alpha.figma.com/hub/file/2747156395/33996b80-ff35-4d84-b296-230aa5ac11a5-cover.png',
+        icon: '/images/lpu_logo.png',
         location: 'Phagwara, Punjab',
         naac: 'A++',
         programs: 'Engineering, Management, Law, Design, Agriculture, Arts, and more',
         established: '2005',
         address: 'Jalandhar-Delhi G.T. Road, Phagwara, Punjab 144411',
         highlights: '600-acre campus, 300+ programs, 200+ international tie-ups',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR7aVT5kP1HKTbeijHy77_pPpSF9ozOgmcnQ&s'
+        image: '/images/lpu.jpg'
     },
     {
         name: 'Amity University',
         description: 'Leading private research university with global campuses and strong industry ties.',
-        icon: 'https://s3-alpha.figma.com/hub/file/2747156395/33996b80-ff35-4d84-b296-230aa5ac11a5-cover.png',
+        icon: '/images/amity_logo.png',
         location: 'Noida, Uttar Pradesh',
         naac: 'A+',
         programs: 'Engineering, Business, Law, Biotechnology, Media, and more',
         established: '2005',
         address: 'Sector 125, Noida, Uttar Pradesh 201313',
         highlights: 'Modern infrastructure, innovation-driven, strong global network',
-        image: ''
+        image: '/images/amity_1.jpg'
     },
     {
         name: 'Manipal Academy of Higher Education (MAHE)',
         description: 'A Deemed University recognized internationally for excellence in education and research.',
-        icon: 'https://s3-alpha.figma.com/hub/file/2747156395/33996b80-ff35-4d84-b296-230aa5ac11a5-cover.png',
+        icon: '/images/manipal_logo.png',
         location: 'Manipal, Karnataka',
         naac: 'A++',
         programs: 'Health Sciences, Engineering, Management, Humanities, and more',
         established: '1953',
         address: 'Tiger Circle Road, Manipal, Karnataka 576104',
         highlights: 'Top-ranked globally, diverse student body, strong research culture',
-        image: ''
+        image: '/images/manipal.jpg'
     },
     {
         name: 'SRM Institute of Science and Technology',
         description: 'Premier institute fostering innovation and high-quality research in multiple disciplines.',
-        icon: 'https://s3-alpha.figma.com/hub/file/2747156395/33996b80-ff35-4d84-b296-230aa5ac11a5-cover.png',
+        icon: '/images/srm_logo.png',
         location: 'Kattankulathur, Tamil Nadu',
         naac: 'A++',
         programs: 'Engineering, Medicine, Management, Law, Science, and Humanities',
         established: '1985',
         address: 'SRM Nagar, Kattankulathur, Chengalpattu, Tamil Nadu 603203',
         highlights: 'Global collaborations, modern campus, excellent placements',
-        image: ''
+        image: '/images/srm.jpg'
     },
 ];
 

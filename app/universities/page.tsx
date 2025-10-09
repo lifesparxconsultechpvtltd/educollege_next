@@ -8,6 +8,7 @@ import Image from 'next/image';
 
 export default function UniversityDirectory() {
     const [selectedUniversity, setSelectedUniversity] = useState<UniversitiesPageData>(universitiesPage[0]);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
         <>
@@ -36,22 +37,22 @@ export default function UniversityDirectory() {
                     <div className="mx-auto max-w-4xl mb-16">
                         {/* Hero Text */}
                         <div className="text-center">
-                            <h1 className="text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
+                            <h1 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-7xl">
                                 Find Your Perfect University Match
                             </h1>
-                            <p className="mt-8 text-lg font-medium text-gray-500 sm:text-xl leading-8">
+                            <p className="mt-6 text-base font-medium text-gray-500 sm:text-lg lg:text-xl sm:mt-8 leading-7 sm:leading-8 px-4 sm:px-0">
                                 Discover top universities and colleges worldwide. Explore programs, campus life, and admissions to find your perfect fit.
                             </p>
 
                             {/* CTA Buttons */}
-                            <div className="mt-10 flex items-center justify-center gap-x-6">
+                            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6 px-4 sm:px-0">
                                 <Link
                                     href="/"
-                                    className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline  focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors duration-200"
+                                    className="w-full sm:w-auto rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline  focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors duration-200 text-center"
                                 >
                                     Get started
                                 </Link>
-                                <Link href="/universities" className="text-sm font-semibold leading-6 text-gray-900 hover:text-gray-700 transition-colors duration-200">
+                                <Link href="/universities" className="w-full sm:w-auto text-sm font-semibold leading-6 text-gray-900 hover:text-gray-700 transition-colors duration-200 text-center">
                                     Learn more <span aria-hidden="true">→</span>
                                 </Link>
                             </div>
@@ -60,15 +61,58 @@ export default function UniversityDirectory() {
                 </div>
             </Section>
             <Section
-                className="py-24 sm:py-5"
+                className="py-12 sm:py-24 sm:py-x-5"
                 crosses
                 crossesOffset="lg:translate-y-0"
                 customPaddings
                 id="university-information-section">
-                <div className="max-w-6xl mx-auto">
-                    <div className="flex min-h-screen">
-                        {/* Sidebar */}
-                        <div className="w-72 overflow-y-auto">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col lg:flex-row min-h-screen">
+                        {/* Mobile Dropdown */}
+                        <div className="lg:hidden mb-6">
+                            <button
+                                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                                className="w-full flex items-center justify-between p-4 bg-white border border-slate-200 rounded-lg shadow-sm"
+                            >
+                                <span className="text-sm font-medium text-slate-900">{selectedUniversity.name}</span>
+                                <svg
+                                    className={`w-5 h-5 text-slate-500 transition-transform ${isMobileMenuOpen ? 'rotate-180' : ''}`}
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            {isMobileMenuOpen && (
+                                <div className="mt-2 bg-white border border-slate-200 rounded-lg shadow-lg max-h-96 overflow-y-auto">
+                                    <div className="p-2 space-y-1">
+                                        {universitiesPage.map((uni, index) => (
+                                            <button
+                                                key={index}
+                                                onClick={() => {
+                                                    setSelectedUniversity(uni);
+                                                    setIsMobileMenuOpen(false);
+                                                }}
+                                                className={`w-full text-left p-3 rounded-lg transition-all duration-300`}
+                                            >
+                                                <h3
+                                                    className={`text-sm font-medium ${selectedUniversity.name === uni.name
+                                                        ? 'text-indigo-700'
+                                                        : 'text-slate-800'
+                                                    } transition-all`}
+                                                >
+                                                    {uni.name}
+                                                </h3>
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Desktop Sidebar */}
+                        <div className="hidden lg:block w-72 overflow-y-auto">
                             <div className="p-3 space-y-1">
                                 {universitiesPage.map((uni, index) => (
                                     <button
@@ -82,7 +126,7 @@ export default function UniversityDirectory() {
                                                     className={`text-sm font-medium truncate cursor-pointer ${selectedUniversity.name === uni.name
                                                         ? 'text-indigo-700'
                                                         : 'text-slate-800'
-                                                        } transition-all`}
+                                                    } transition-all`}
                                                 >
                                                     {uni.name}
                                                 </h3>
@@ -97,7 +141,7 @@ export default function UniversityDirectory() {
                         {/* Main Content */}
                         <div className="flex-1 overflow-y-auto">
                             {/* Hero Section */}
-                            <div className="relative h-72 overflow-hidden bg-white border border-slate-200 rounded-none shadow-sm">
+                            <div className="relative h-48 sm:h-64 lg:h-72 overflow-hidden bg-white border border-slate-200 rounded-lg sm:rounded-none shadow-sm">
                                 {selectedUniversity.image && (
                                     <Image
                                         src={selectedUniversity.image}
@@ -110,16 +154,16 @@ export default function UniversityDirectory() {
                                 {/* Soft light-to-dark gradient behind text */}
                                 <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/60 via-black/40 to-transparent"></div>
 
-                                <div className="absolute bottom-0 left-0 right-0 px-8 pb-6">
-                                    <div className="flex items-end gap-4">
-                                        <div className="w-16 h-16 rounded-lg shadow-sm flex items-center justify-center border border-slate-200/20 backdrop-blur-sm">
-                                            <Image src={selectedUniversity.icon} alt={selectedUniversity.name} className="w-12 h-12 object-cover" width={48} height={48} />
+                                <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6">
+                                    <div className="flex items-end gap-3 sm:gap-4">
+                                        <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg shadow-sm flex items-center justify-center border border-slate-200/20 backdrop-blur-sm">
+                                            <Image src={selectedUniversity.icon} alt={selectedUniversity.name} className="w-8 h-8 sm:w-12 sm:h-12 object-cover" width={48} height={48} />
                                         </div>
                                         <div className="pb-1">
-                                            <h1 className="text-xl font-semibold text-white drop-shadow-sm">
+                                            <h1 className="text-base sm:text-lg lg:text-xl font-semibold text-white drop-shadow-sm">
                                                 {selectedUniversity.name}
                                             </h1>
-                                            <p className="text-sm text-slate-100/90 drop-shadow-sm mt-1">
+                                            <p className="text-xs sm:text-sm text-slate-100/90 drop-shadow-sm mt-1">
                                                 {selectedUniversity.location}
                                             </p>
                                         </div>
@@ -129,55 +173,55 @@ export default function UniversityDirectory() {
 
 
                             {/* Content */}
-                            <div className="px-12 py-10">
+                            <div className="px-4 sm:px-6 lg:px-12 py-6 sm:py-8 lg:py-10">
                                 {/* Stats Grid */}
-                                <div className="grid grid-cols-4 gap-6 mb-12 pb-8 border-b border-slate-200">
+                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12 pb-6 sm:pb-8 border-b border-slate-200">
                                     <div className="space-y-1">
                                         <p className="text-xs text-slate-500 font-medium">Established</p>
-                                        <p className="text-lg font-semibold text-slate-900">{selectedUniversity.established}</p>
+                                        <p className="text-base sm:text-lg font-semibold text-slate-900">{selectedUniversity.established}</p>
                                     </div>
                                     <div className="space-y-1">
                                         <p className="text-xs text-slate-500 font-medium">Students</p>
-                                        <p className="text-lg font-semibold text-slate-900">{selectedUniversity.studentCount}</p>
+                                        <p className="text-base sm:text-lg font-semibold text-slate-900">{selectedUniversity.studentCount}</p>
                                     </div>
                                     <div className="space-y-1">
                                         <p className="text-xs text-slate-500 font-medium">Faculty</p>
-                                        <p className="text-lg font-semibold text-slate-900">{selectedUniversity.facultyCount}</p>
+                                        <p className="text-base sm:text-lg font-semibold text-slate-900">{selectedUniversity.facultyCount}</p>
                                     </div>
                                     <div className="space-y-1">
                                         <p className="text-xs text-slate-500 font-medium">Avg Package</p>
-                                        <p className="text-lg font-semibold text-slate-900">{selectedUniversity.avgPackage}</p>
+                                        <p className="text-base sm:text-lg font-semibold text-slate-900">{selectedUniversity.avgPackage}</p>
                                     </div>
                                 </div>
 
                                 {/* About */}
-                                <div className="mb-10">
+                                <div className="mb-8 sm:mb-10">
                                     <h2 className="text-base font-semibold mb-3 text-slate-900">Overview</h2>
-                                    <p className="leading-relaxed text-slate-700 text-[15px]">
+                                    <p className="leading-relaxed text-slate-700 text-sm sm:text-[15px]">
                                         {selectedUniversity.description}
                                     </p>
-                                    <p className="leading-relaxed text-slate-700 text-[15px] mt-3">
+                                    <p className="leading-relaxed text-slate-700 text-sm sm:text-[15px] mt-3">
                                         {selectedUniversity.highlights}
                                     </p>
                                 </div>
 
                                 {/* Programs */}
-                                <div className="mb-10 pb-10 border-b border-slate-200">
+                                <div className="mb-8 sm:mb-10 pb-8 sm:pb-10 border-b border-slate-200">
                                     <h2 className="text-base font-semibold mb-3 text-slate-900">Programs</h2>
-                                    <p className="leading-relaxed text-slate-700 text-[15px]">
+                                    <p className="leading-relaxed text-slate-700 text-sm sm:text-[15px]">
                                         {selectedUniversity.programs}
                                     </p>
                                 </div>
 
                                 {/* Two Column */}
-                                <div className="grid grid-cols-2 gap-12 mb-10 pb-10 border-b border-slate-200">
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 sm:mb-10 pb-8 sm:pb-10 border-b border-slate-200">
                                     {/* Accreditation */}
                                     <div>
                                         <h2 className="text-base font-semibold mb-4 text-slate-900">Accreditation</h2>
                                         <div className="flex flex-wrap gap-2">
                                             {selectedUniversity.accreditation.map((acc, idx) => (
                                                 <span key={idx}
-                                                    className="px-3 py-1.5 rounded-none text-sm font-medium bg-slate-100 text-slate-900">
+                                                    className="px-3 py-1.5 rounded-none text-xs sm:text-sm font-medium bg-slate-100 text-slate-900">
                                                     {acc}
                                                 </span>
                                             ))}
@@ -189,47 +233,47 @@ export default function UniversityDirectory() {
                                         <h2 className="text-base font-semibold mb-4 text-slate-900">Campus Details</h2>
                                         <div className="space-y-3">
                                             <div className="flex gap-3">
-                                                <span className="text-sm text-slate-500 w-20">Size</span>
+                                                <span className="text-xs sm:text-sm text-slate-500 w-20">Size</span>
                                                 <span
-                                                    className="text-sm font-medium text-slate-900">{selectedUniversity.campusSize}</span>
+                                                    className="text-xs sm:text-sm font-medium text-slate-900">{selectedUniversity.campusSize}</span>
                                             </div>
                                             <div className="flex gap-3">
-                                                <span className="text-sm text-slate-500 w-20">Ranking</span>
+                                                <span className="text-xs sm:text-sm text-slate-500 w-20">Ranking</span>
                                                 <span
-                                                    className="text-sm font-medium text-slate-900">{selectedUniversity.ranking}</span>
+                                                    className="text-xs sm:text-sm font-medium text-slate-900">{selectedUniversity.ranking}</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Facilities */}
-                                <div className="mb-10">
+                                <div className="mb-8 sm:mb-10">
                                     <h2 className="text-base font-semibold mb-4 text-slate-900">Campus Facilities</h2>
-                                    <div className="grid grid-cols-3 gap-3">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                                         {selectedUniversity.facilities.map((facility, idx) => (
                                             <div key={idx}
                                                 className="flex items-center gap-2 px-3 py-2.5 bg-slate-50 rounded-none border border-slate-200">
                                                 <div className="w-1.5 h-1.5 rounded-none bg-slate-400" />
-                                                <span className="text-sm text-slate-700">{facility}</span>
+                                                <span className="text-xs sm:text-sm text-slate-700">{facility}</span>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
 
                                 {/* Address */}
-                                <div className="bg-slate-50 rounded-none px-6 py-4 mb-8 border border-slate-200">
+                                <div className="bg-slate-50 rounded-none px-4 sm:px-6 py-4 mb-6 sm:mb-8 border border-slate-200">
                                     <h2 className="text-sm font-semibold mb-2 text-slate-900">Campus Address</h2>
-                                    <p className="text-sm text-slate-700">{selectedUniversity.address}</p>
+                                    <p className="text-xs sm:text-sm text-slate-700">{selectedUniversity.address}</p>
                                 </div>
 
                                 {/* CTA */}
-                                <div className="flex gap-3">
+                                <div className="flex flex-col sm:flex-row gap-3">
                                     <button
-                                        className="px-6 py-2.5 bg-indigo-600 text-white rounded-none text-sm font-medium hover:bg-slate-800 transition-colors">
+                                        className="w-full sm:w-auto px-6 py-2.5 bg-indigo-600 text-white rounded-none text-sm font-medium hover:bg-slate-800 transition-colors">
                                         Apply Now
                                     </button>
                                     <button
-                                        className="px-6 py-2.5 border border-slate-300 rounded-none text-sm font-medium text-slate-900 hover:bg-slate-50 transition-colors">
+                                        className="w-full sm:w-auto px-6 py-2.5 border border-slate-300 rounded-none text-sm font-medium text-slate-900 hover:bg-slate-50 transition-colors">
                                         Download Brochure
                                     </button>
                                 </div>

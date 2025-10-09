@@ -37,10 +37,10 @@ export default function ProgramSection() {
                     <div className="flex items-center justify-center lg:justify-end">
                         <Image
                             alt="Product screenshot"
-                            src={''}
+                            src={'/images/program-image.svg'}
                             width={2432}
                             height={1442}
-                            className="w-full max-w-md rounded-none shadow-xl ring-1 ring-gray-400/10"
+                            className="w-full max-w-md rounded-none shadow-none ring-1 ring-gray-900/10 sm:max-w-xl lg:max-w-3xl"
                         />
                     </div>
                 </div>
