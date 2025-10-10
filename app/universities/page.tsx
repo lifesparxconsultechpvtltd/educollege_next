@@ -47,13 +47,16 @@ export default function UniversityDirectory() {
                             {/* CTA Buttons */}
                             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6 px-4 sm:px-0">
                                 <Link
-                                    href="/"
-                                    className="w-full sm:w-auto rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline  focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors duration-200 text-center"
+                                    href="/programs"
+                                    className="w-full sm:w-auto bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline  focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors duration-200 text-center"
                                 >
-                                    Get started
+                                    Explore Programs
                                 </Link>
-                                <Link href="/universities" className="w-full sm:w-auto text-sm font-semibold leading-6 text-gray-900 hover:text-gray-700 transition-colors duration-200 text-center">
-                                    Learn more <span aria-hidden="true">→</span>
+                                <Link
+                                    href="/universities"
+                                    className="text-sm font-semibold px-3.5 py-2.5 text-gray-900 transition-all duration-300 border border-transparent hover:border-gray-300 hover:text-gray-700 hover:scale-105"
+                                >
+                                    Contact Us <span aria-hidden="true">→</span>
                                 </Link>
                             </div>
                         </div>
@@ -100,7 +103,7 @@ export default function UniversityDirectory() {
                                                     className={`text-sm font-medium ${selectedUniversity.name === uni.name
                                                         ? 'text-indigo-700'
                                                         : 'text-slate-800'
-                                                    } transition-all`}
+                                                        } transition-all`}
                                                 >
                                                     {uni.name}
                                                 </h3>
@@ -126,7 +129,7 @@ export default function UniversityDirectory() {
                                                     className={`text-sm font-medium truncate cursor-pointer ${selectedUniversity.name === uni.name
                                                         ? 'text-indigo-700'
                                                         : 'text-slate-800'
-                                                    } transition-all`}
+                                                        } transition-all`}
                                                 >
                                                     {uni.name}
                                                 </h3>
@@ -143,12 +146,16 @@ export default function UniversityDirectory() {
                             {/* Hero Section */}
                             <div className="relative h-48 sm:h-64 lg:h-72 overflow-hidden bg-white border border-slate-200 rounded-lg sm:rounded-none shadow-sm">
                                 {selectedUniversity.image && (
-                                    <Image
-                                        src={selectedUniversity.image}
-                                        alt={selectedUniversity.name}
-                                        className="w-full h-full object-cover"
-                                        width={800} height={400}
-                                    />
+                                    <div className="absolute inset-0">
+                                        <Image
+                                            src={selectedUniversity.image}
+                                            alt={selectedUniversity.name}
+                                            fill
+                                            className="object-cover"
+                                            priority
+                                            sizes="(max-width: 1024px) 100vw, 1024px"
+                                        />
+                                    </div>
                                 )}
 
                                 {/* Soft light-to-dark gradient behind text */}

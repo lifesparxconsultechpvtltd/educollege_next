@@ -70,8 +70,8 @@ export default function Header() {
               <Image
                 alt="Educollege Logo"
                 src="/images/logo.svg"
-                width={32}
-                height={32}
+                width={140}
+                height={50}
               />
             </Link>
             <button
@@ -97,15 +97,6 @@ export default function Header() {
                     {item.name}
                   </Link>
                 ))}
-              </div>
-              <div className="py-6">
-                <Link
-                  href="/login"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </Link>
               </div>
             </div>
           </div>

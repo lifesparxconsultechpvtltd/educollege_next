@@ -1,4 +1,4 @@
-import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from "@heroicons/react/24/outline"
+import { AcademicCapIcon, BeakerIcon, BriefcaseIcon, ScaleIcon, PaintBrushIcon, ComputerDesktopIcon } from '@heroicons/react/24/outline';
 
 export const navigation = [
   { name: 'Home', href: '/' },
@@ -6,6 +6,7 @@ export const navigation = [
   { name: 'Programs', href: '/programs' },
   { name: 'Blog', href: '/blogs' },
   { name: 'Compare', href: '/compare' },
+  { name: 'Contact', href: '/contact' },
 ]
 
 interface Universities {
@@ -74,21 +75,139 @@ export const university: Universities[] = [
 ];
 
 
-export const programs = [
+export interface Program {
+    id: string;
+    title: string;
+    category: string;
+    description: string;
+    duration: number;
+    fees: number;
+    mode: string;
+    accreditation: string[];
+    curriculum: string[];
+    eligibility: string[];
+    featured: boolean;
+    icon: any;
+    university: {
+        id: string;
+        name: string;
+        logo: string;
+    };
+}
+
+export const programs: Program[] = [
     {
-        name: 'Push to deploy.',
-        description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-        icon: CloudArrowUpIcon,
+        id: '1',
+        title: 'Online MSc Economics (Master of Science in Economics)',
+        category: 'MSc',
+        description: 'The Online Master of Science in Economics (M.Sc Economics) program at LPU Online explores economic theories and policies equipping students with the analytical tools necessary to address complex economic issues and make informed decisions. MSc Economics Program having industry-oriented curriculum comes with weekend LIVE lectures by top faculty, Master Classes by experts, Flexible Online Exams, Placement Support, and much more.',
+        duration: 2,
+        fees: 16400,
+        mode: 'online',
+        accreditation: ['UGC', 'NAAC A++'],
+        curriculum: ['Research exposure', 'In demand skill improvement', 'IT skill'],
+        eligibility: [`Bachelor's degree (any discipline) or equivalent`],
+        featured: true,
+        icon: AcademicCapIcon,
+        university: {
+            id: '1',
+            name: 'LPU University',
+            logo: '/images/lpu_logo.png',
+        },
     },
     {
-        name: 'SSL certificates.',
-        description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
-        icon: LockClosedIcon,
+        id: '2',
+        title: 'B.Tech Computer Science & Engineering',
+        category: 'B.Tech',
+        description: 'Master cutting-edge technologies including AI, Machine Learning, Cloud Computing, and Full-Stack Development. Industry-aligned curriculum with hands-on projects and internship opportunities. Get trained by industry experts with live projects and guaranteed placement support.',
+        duration: 4,
+        fees: 89000,
+        mode: 'online',
+        accreditation: ['UGC', 'NAAC A++', 'AICTE'],
+        curriculum: ['AI & Machine Learning', 'Cloud Computing', 'Full-Stack Development', 'Data Structures', 'Cybersecurity'],
+        eligibility: ['10+2 with Physics, Chemistry & Mathematics', 'Minimum 50% aggregate marks'],
+        featured: true,
+        icon: ComputerDesktopIcon,
+        university: {
+            id: '1',
+            name: 'LPU University',
+            logo: '/images/lpu_logo.png',
+        },
     },
     {
-        name: 'Database backups.',
-        description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-        icon: ServerIcon,
+        id: '3',
+        title: 'MBA (Master of Business Administration)',
+        category: 'MBA',
+        description: 'Comprehensive business education covering Strategic Management, Finance, Marketing, HR, and Entrepreneurship with industry mentorship and live case studies from top companies. Weekend LIVE sessions, guest lectures by industry leaders, and 100% placement assistance.',
+        duration: 2,
+        fees: 125000,
+        mode: 'online',
+        accreditation: ['UGC', 'NAAC A+', 'NBA'],
+        curriculum: ['Strategic Management', 'Financial Analysis', 'Digital Marketing', 'Leadership Skills', 'Business Analytics'],
+        eligibility: [`Bachelor's degree (any discipline)`, `Minimum 50% aggregate marks`],
+        featured: true,
+        icon: BriefcaseIcon,
+        university: {
+            id: '1',
+            name: 'Amity University',
+            logo: '/images/amity_logo.png',
+        },
+    },
+    {
+        id: '4',
+        title: 'Online MA Psychology',
+        category: 'MA',
+        description: 'Explore human behavior, cognitive processes, and mental health with research-based learning. Program includes counseling techniques, psychological assessment, and clinical practice modules. Flexible learning with recorded lectures and live doubt-clearing sessions.',
+        duration: 2,
+        fees: 42000,
+        mode: 'online',
+        accreditation: ['UGC', 'NAAC A++'],
+        curriculum: ['Clinical Psychology', 'Counseling Methods', 'Research Methodology', 'Behavioral Analysis', 'Psychotherapy'],
+        eligibility: [`Bachelor's degree in Psychology or related field`, `Minimum 45% aggregate marks`],
+        featured: true,
+        icon: AcademicCapIcon,
+        university: {
+            id: '1',
+            name: 'Manipal University',
+            logo: '/images/manipal_logo.png',
+        },
+    },
+    {
+        id: '5',
+        title: 'BBA (Bachelor of Business Administration)',
+        category: 'BBA',
+        description: 'Foundation program in business management covering all aspects of business operations, entrepreneurship, and corporate management. Interactive learning with case studies, group projects, and industry internships included in the curriculum.',
+        duration: 3,
+        fees: 65000,
+        mode: 'online',
+        accreditation: ['UGC', 'NAAC A+'],
+        curriculum: ['Business Management', 'Marketing Fundamentals', 'Financial Accounting', 'Human Resource Management', 'Entrepreneurship'],
+        eligibility: ['10+2 from recognized board', 'Minimum 50% aggregate marks'],
+        featured: false,
+        icon: BriefcaseIcon,
+        university: {
+            id: '1',
+            name: 'SRM University',
+            logo: '/images/srm_logo.png',
+        },
+    },
+    {
+        id: '6',
+        title: 'MCA (Master of Computer Applications)',
+        category: 'MCA',
+        description: 'Advanced computer applications program focusing on software development, database management, and emerging technologies. Curriculum designed with input from tech giants like Google, Microsoft, and Amazon. Hands-on training with real-world projects.',
+        duration: 2,
+        fees: 78000,
+        mode: 'online',
+        accreditation: ['UGC', 'NAAC A++', 'AICTE'],
+        curriculum: ['Software Engineering', 'Database Systems', 'Web Technologies', 'Mobile App Development', 'Cloud Architecture'],
+        eligibility: [`Bachelor's degree with Mathematics`, `Minimum 50% aggregate marks`],
+        featured: false,
+        icon: ComputerDesktopIcon,
+        university: {
+            id: '1',
+            name: 'LPU University',
+            logo: '/images/lpu_logo.png',
+        },
     },
 ];

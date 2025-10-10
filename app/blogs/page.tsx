@@ -1,10 +1,10 @@
+import Section from "@/src/common/section-wrapper";
 import Link from "next/link";
-import Section from "../common/section-wrapper";
 
-export default function Hero() {
-
-    return (
-        <Section
+export default function Page(){
+    return(
+        <>
+            <Section
             className="py-24 sm:py-5"
             crosses
             crossesOffset="lg:translate-y-0"
@@ -27,33 +27,22 @@ export default function Hero() {
 
                 {/* Main Content */}
                 <div className="mx-auto max-w-4xl mb-16">
-                    {/* Announcement Badge */}
-                    <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                        <div className="relative rounded-none px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 transition-all duration-300">
-                            Explore programs & universities.{' '}
-                            <Link href="/programs" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                                <span aria-hidden="true" className="absolute inset-0" />
-                                Read more <span aria-hidden="true">&rarr;</span>
-                            </Link>
-                        </div>
-                    </div>
-
                     {/* Hero Text */}
                     <div className="text-center">
                         <h1 className="text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
-                            Educollege for modern education
+                            Explore Our Blog for Career Guidance
                         </h1>
                         <p className="mt-8 text-lg font-medium text-gray-500 sm:text-xl leading-8">
-                            Online education is a great way to learn new skills and advance your career. Our platform offers a wide range of courses and programs to help you achieve your goals.
+                            With latest updates, trends, and insights from the world of education, our blog is your go-to resource for making informed decisions about your academic journey.
                         </p>
 
                         {/* CTA Buttons */}
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <Link
-                                href="/"
-                                className="rounded-none bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline  focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors duration-200"
+                                href="#"
+                                className="bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline  focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors duration-200"
                             >
-                                Get started
+                                Read Articles
                             </Link>
                             <Link
                                 href="/universities"
@@ -66,5 +55,6 @@ export default function Hero() {
                 </div>
             </div>
         </Section>
+        </>
     )
 }
