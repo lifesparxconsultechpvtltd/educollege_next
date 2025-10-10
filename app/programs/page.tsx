@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { AcademicCapIcon, CheckBadgeIcon, ClockIcon, CurrencyRupeeIcon, BookOpenIcon } from '@heroicons/react/24/outline';
+import { AcademicCapIcon, ClockIcon, CurrencyRupeeIcon, BookOpenIcon } from '@heroicons/react/24/outline';
 import { programsPageData } from '@/src/data/pages/program.data';
 import Section from '@/src/common/section-wrapper';
 

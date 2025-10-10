@@ -1,4 +1,5 @@
-import { AcademicCapIcon, BeakerIcon, BriefcaseIcon, ScaleIcon, PaintBrushIcon, ComputerDesktopIcon } from '@heroicons/react/24/outline';
+import { AcademicCapIcon, BriefcaseIcon, ComputerDesktopIcon } from '@heroicons/react/24/outline';
+import { FC, SVGProps } from 'react';
 
 export const navigation = [
   { name: 'Home', href: '/' },
@@ -87,7 +88,7 @@ export interface Program {
     curriculum: string[];
     eligibility: string[];
     featured: boolean;
-    icon: any;
+    icon: string | FC<SVGProps<SVGSVGElement>>;
     university: {
         id: string;
         name: string;
