@@ -26,12 +26,15 @@ const LOGOS = [
 
 export default function LogoCloud() {
     return (
-        <Section crosses crossesOffset="lg:translate-y-0" customPaddings id="logos" className="bg-white py-12 sm:py-16">
+        <Section crosses crossesOffset="lg:translate-y-0" customPaddings id="logos" className="py-12 sm:py-16">
             <div className="mx-auto max-w-5xl px-4 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:text-center mb-16">
-                    <h2 className="text-base font-semibold text-blue-600 capitalize">DEPLOY FASTER</h2>
+                    <h2 className="text-base font-semibold text-indigo-600 capitalize">DEPLOY FASTER</h2>
                     <p className="mt-2 text-xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
-                        Everything you need to deploy your app
+                        Our Trusted University
+                    </p>
+                    <p className="mt-6 text-lg text-gray-600">
+                        We are proud to collaborate with industry-leading universities that share our commitment to excellence and innovation.
                     </p>
                 </div>
 

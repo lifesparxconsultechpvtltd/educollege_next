@@ -30,7 +30,7 @@ export default function Page() {
                         {/* Hero Text */}
                         <div className="text-center">
                             <h1 className="text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
-                                Contact Us, We&apos;re Here to Help!
+                                Get in Touch with <br />Educollege
                             </h1>
                             <p className="mt-8 text-lg font-medium text-gray-500 sm:text-xl leading-8">
                                 Whether you have questions about our programs, admissions, or campus life, our dedicated team is ready to assist you. Reach out to us via the form below or email us at <Link href="mailto:info@educollege.com" className="font-semibold text-indigo-600 hover:text-indigo-500">info@educollege.com</Link>.
@@ -40,7 +40,7 @@ export default function Page() {
                                 <Link
                                     href="/programs"
                                     className="w-full sm:w-auto bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline  focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors duration-200 text-center"
-                                >
+                                    >
                                     Explore Programs
                                 </Link>
                                 <Link

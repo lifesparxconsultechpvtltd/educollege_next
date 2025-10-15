@@ -3,14 +3,16 @@ import { useState, useRef, useEffect } from 'react';
 import {
   ChatBubbleLeftIcon,
   XMarkIcon,
-  ArrowPathIcon,
   PaperAirplaneIcon,
 } from '@heroicons/react/24/outline';
+import { motion, AnimatePresence } from 'framer-motion';
+import { programsPageData } from '@/src/data/pages/program.data';
 
 interface Message {
   id: number;
   text: string;
   sender: 'user' | 'bot';
+  time: string;
 }
 
 interface UserData {
@@ -28,17 +30,18 @@ interface ConversationStep {
 }
 
 export default function ChatBot() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "Hi! 👋 I'm here to help you find the perfect course and university. Let's start by getting to know you better!",
+      text: "Hi! 👋 I'm your Course Advisor. Let's find the best university program for you!",
       sender: 'bot',
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
-  const [input, setInput] = useState<string>('');
-  const [isTyping, setIsTyping] = useState<boolean>(false);
-  const [currentStep, setCurrentStep] = useState<number>(0);
+  const [input, setInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
   const [userData, setUserData] = useState<UserData>({
     name: '',
     email: '',
@@ -52,50 +55,38 @@ export default function ChatBot() {
 
   const conversationFlow: ConversationStep[] = [
     { question: "What's your name?", field: 'name' },
-    {
-      question:
-        'Great! What field are you interested in? (e.g., Engineering, Business, Arts, Science, etc.)',
-      field: 'interest',
-    },
-    {
-      question:
-        "What level of study are you looking for? (e.g., Bachelor's, Master's, PhD)",
-      field: 'studyLevel',
-    },
-    {
-      question: "What's your preferred location or country for studying?",
-      field: 'location',
-    },
-    {
-      question:
-        'Perfect! Please provide your email address so we can send you personalized recommendations.',
-      field: 'email',
-    },
-    { question: "Last step! What's your phone number?", field: 'phone' },
+    { question: "Which field interests you? (Engineering, Business, Arts, etc.)", field: 'interest' },
+    { question: "What study level are you looking for? (Bachelor's, Master's)", field: 'studyLevel' },
+    { question: "Do you prefer Online, On-Campus, or Hybrid?", field: 'location' },
+    { question: "Please share your email address.", field: 'email' },
+    { question: "Finally, your phone number please.", field: 'phone' },
   ];
 
-  const scrollToBottom = (): void => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToBottom = () => messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+
+  useEffect(scrollToBottom, [messages]);
+
+  const addMessage = (text: string, sender: 'user' | 'bot') => {
+    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    setMessages(prev => [...prev, { id: Date.now(), text, sender, time }]);
   };
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
-
-  const addMessage = (text: string, sender: 'user' | 'bot'): void => {
-    const newMessage: Message = { id: Date.now(), text, sender };
-    setMessages((prev) => [...prev, newMessage]);
-  };
-
-  const simulateTyping = (callback: () => void): void => {
+  const simulateTyping = (callback: () => void, textLength?: number) => {
     setIsTyping(true);
+    const delay = Math.min(2000, 400 + (textLength || 0) * 20);
     setTimeout(() => {
       setIsTyping(false);
       callback();
-    }, 1000);
+    }, delay);
   };
 
-  const handleSend = (): void => {
+  const findMatchingPrograms = (interest: string, level: string) =>
+    programsPageData.filter(p =>
+      p.category.toLowerCase().includes(interest.toLowerCase()) &&
+      p.title.toLowerCase().includes(level.toLowerCase())
+    );
+
+  const handleSend = () => {
     if (!input.trim()) return;
 
     const userMessage = input.trim();
@@ -103,38 +94,61 @@ export default function ChatBot() {
     setInput('');
 
     if (currentStep < conversationFlow.length) {
-      const currentField = conversationFlow[currentStep].field;
-      setUserData((prev) => ({ ...prev, [currentField]: userMessage }));
+      const field = conversationFlow[currentStep].field;
+      setUserData(prev => ({ ...prev, [field]: userMessage }));
 
       simulateTyping(() => {
         if (currentStep < conversationFlow.length - 1) {
           addMessage(conversationFlow[currentStep + 1].question, 'bot');
-          setCurrentStep((prev) => prev + 1);
-        } else {
-          handleFormComplete(userMessage);
-        }
+          setCurrentStep(prev => prev + 1);
+        } else handleFormComplete(userMessage);
       });
+    } else {
+      simulateTyping(() => addMessage(getBotResponse(userMessage), 'bot'));
     }
   };
 
-  const handleFormComplete = (lastAnswer: string): void => {
-    const finalData: UserData = { ...userData, phone: lastAnswer };
+  const getBotResponse = (msg: string): string => {
+    const text = msg.toLowerCase();
+    if (text.includes('hi') || text.includes('hello')) return "Hey there! 👋 How can I assist you today?";
+    if (text.includes('thanks')) return "You're welcome! 😊";
+    return "I’m not sure I got that 🤔 — you can ask me about available courses, universities, or fees.";
+  };
+
+  const handleFormComplete = (lastAnswer: string) => {
+    const finalData = { ...userData, phone: lastAnswer };
 
     simulateTyping(() => {
-      addMessage(
-        `Thank you, ${finalData.name}! 🎉 Based on your interest in ${finalData.interest} at the ${finalData.studyLevel} level in ${finalData.location}, we'll send personalized course and university recommendations to ${finalData.email}. Our team will contact you at ${finalData.phone} within 24 hours!`,
-        'bot'
-      );
+      const matches = findMatchingPrograms(finalData.interest, finalData.studyLevel);
+
+      if (matches.length) {
+        addMessage(
+          `Great, ${finalData.name}! 🎓 Based on your interest in ${finalData.interest} at ${finalData.studyLevel} level, here are some matches:`,
+          'bot'
+        );
+
+        matches.slice(0, 3).forEach((p, i) => {
+          setTimeout(() => {
+            addMessage(
+              `${p.icon} *${p.title}*\n🏛️ ${p.university.name}\n📚 ${p.duration} years | 💰 ₹${p.fees.toLocaleString()} | 📍 ${p.mode}`,
+              'bot'
+            );
+          }, (i + 1) * 1500);
+        });
+      } else {
+        addMessage(
+          `Hmm 🤔 I couldn’t find a perfect match for your preferences, ${finalData.name}. Want to explore another category?`,
+          'bot'
+        );
+      }
 
       setTimeout(() => {
         addMessage(
-          'Would you like to explore more options or have any questions? Feel free to ask!',
+          `We'll also email your personalized recommendations to ${finalData.email} and contact you at ${finalData.phone}. ✅`,
           'bot'
         );
-      }, 2000);
+      }, 4000);
     });
-
-    console.log('Form Data:', finalData);
   };
 
   return (
@@ -142,80 +156,91 @@ export default function ChatBot() {
       {!isOpen ? (
         <button
           onClick={() => setIsOpen(true)}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white p-4 shadow-lg rounded-full transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-indigo-300"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white p-4 shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none"
         >
           <ChatBubbleLeftIcon className="h-7 w-7" />
         </button>
       ) : (
-        <div className=" shadow-2xl w-96 h-[500px] flex flex-col overflow-hidden border-2 border-indigo-100">
-          {/* Header */}
-          <div className="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white p-4 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="bg-white/20 p-2">
-                <ChatBubbleLeftIcon className="h-6 w-6" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg">Course Advisor</h3>
-                <p className="text-xs text-indigo-100">Online now</p>
-              </div>
-            </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="hover:bg-white/20 p-2 transition-colors"
-            >
-              <XMarkIcon className="h-5 w-5" />
-            </button>
-          </div>
-
-          {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
-            {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
-                <div
-                  className={`max-w-[75%] rounded-sm px-4 py-3 ${
-                    message.sender === 'user'
-                      ? 'bg-indigo-600 text-white rounded-br-none'
-                      : 'bg-white text-gray-800 rounded-bl-none shadow-md border border-gray-100'
-                  }`}
-                >
-                  <p className="text-sm leading-relaxed">{message.text}</p>
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 30 }}
+            transition={{ duration: 0.3 }}
+            className="bg-white shadow-2xl w-96 h-[450px] flex flex-col overflow-hidden border border-gray-300"
+          >
+            {/* Header */}
+            <div className="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white p-4 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="bg-white/20 p-2">
+                  <ChatBubbleLeftIcon className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg">Course Advisor</h3>
+                  <p className="text-xs text-indigo-100">Online now</p>
                 </div>
               </div>
-            ))}
-            {isTyping && (
-              <div className="flex justify-start">
-                <div className="bg-white text-gray-800 rounded-sm rounded-bl-none px-4 py-3 shadow-md border border-gray-100 flex items-center gap-2">
-                  <ArrowPathIcon className="animate-spin text-indigo-600 h-5 w-5" />
-                  <span className="text-sm text-gray-500">Typing...</span>
-                </div>
-              </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
-
-          {/* Input */}
-          <div className="p-4 bg-white border-t border-gray-200">
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Type your message..."
-                className="flex-1 px-4 py-3 border-2 border-gray-200 focus:border-indigo-600 focus:outline-none text-sm transition-colors"
-              />
               <button
-                onClick={handleSend}
-                disabled={!input.trim()}
-                className="bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white cursor-pointer p-3 transition-colors focus:outline-none focus:ring-4 focus:ring-indigo-300"
+                onClick={() => setIsOpen(false)}
+                className="hover:bg-white/20 p-2"
               >
-                <PaperAirplaneIcon className="h-5 w-5" />
+                <XMarkIcon className="h-5 w-5" />
               </button>
             </div>
-          </div>
-        </div>
+
+            {/* Messages */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+              {messages.map(msg => (
+                <div
+                  key={msg.id}
+                  className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                >
+                  <div
+                    className={`max-w-[75%] px-4 py-3 ${
+                      msg.sender === 'user'
+                        ? 'bg-indigo-600 text-white'
+                        : 'bg-white text-gray-800 border border-gray-200 shadow-sm'
+                    }`}
+                  >
+                    <p className="text-sm whitespace-pre-line leading-relaxed">{msg.text}</p>
+                    <p className="text-[10px] text-gray-400 mt-1 text-right">{msg.time}</p>
+                  </div>
+                </div>
+              ))}
+              {isTyping && (
+                <div className="flex justify-start items-center bg-white p-3 border border-gray-200 shadow-sm w-fit">
+                  <div className="flex space-x-1">
+                    <span className="w-2 h-2 bg-gray-400 animate-bounce [animation-delay:-0.3s]"></span>
+                    <span className="w-2 h-2 bg-gray-400 animate-bounce [animation-delay:-0.15s]"></span>
+                    <span className="w-2 h-2 bg-gray-400 animate-bounce"></span>
+                  </div>
+                </div>
+              )}
+              <div ref={messagesEndRef} />
+            </div>
+
+            {/* Input */}
+            <div className="p-4 bg-white border-t border-gray-300">
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={input}
+                  onChange={e => setInput(e.target.value)}
+                  placeholder="Type your message..."
+                  onKeyDown={e => e.key === 'Enter' && handleSend()}
+                  className="flex-1 px-4 py-3 border border-gray-300 focus:border-indigo-600 focus:outline-none text-sm"
+                />
+                <button
+                  onClick={handleSend}
+                  disabled={!input.trim()}
+                  className="bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-300 text-white p-3 transition-colors"
+                >
+                  <PaperAirplaneIcon className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       )}
     </div>
   );

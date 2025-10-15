@@ -36,9 +36,9 @@ export default function UniversityDirectory() {
                     {/* Main Content */}
                     <div className="mx-auto max-w-4xl mb-16">
                         {/* Hero Text */}
-                        <div className="text-center">
+                        <div className="text-center max-w-3xl mx-auto">
                             <h1 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-7xl">
-                                Find Your Perfect University Match
+                                Explore Universities & Colleges Worldwide
                             </h1>
                             <p className="mt-6 text-base font-medium text-gray-500 sm:text-lg lg:text-xl sm:mt-8 leading-7 sm:leading-8 px-4 sm:px-0">
                                 Discover top universities and colleges worldwide. Explore programs, campus life, and admissions to find your perfect fit.
@@ -276,12 +276,8 @@ export default function UniversityDirectory() {
                                 {/* CTA */}
                                 <div className="flex flex-col sm:flex-row gap-3">
                                     <button
-                                        className="w-full sm:w-auto px-6 py-2.5 bg-indigo-600 text-white rounded-none text-sm font-medium hover:bg-slate-800 transition-colors">
+                                        className="w-full sm:w-auto px-6 py-2.5 bg-indigo-600 text-white rounded-none text-sm font-medium hover:bg-indigo-700 cursor-pointer transition-colors">
                                         Apply Now
-                                    </button>
-                                    <button
-                                        className="w-full sm:w-auto px-6 py-2.5 border border-slate-300 rounded-none text-sm font-medium text-slate-900 hover:bg-slate-50 transition-colors">
-                                        Download Brochure
                                     </button>
                                 </div>
                             </div>

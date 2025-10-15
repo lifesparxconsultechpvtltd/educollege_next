@@ -45,17 +45,17 @@ export default function Page() {
                         />
                     </div>
 
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+                    <div className="max-w-7xl mx-auto mb-16">
                         <div className="text-center max-w-3xl mx-auto">
-                            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-900 mb-4">
+                            <h1 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-7xl">
                                 Explore Our Programs, <br />Find Your Future
                             </h1>
-                            <p className="text-base sm:text-lg text-slate-600 mb-8">
+                            <p className="mt-8 text-lg font-medium text-gray-500 sm:text-xl leading-8">
                                 Browse through a wide range of programs from top universities. Filter by category, mode, duration, and fees to find the perfect fit for your career goals.
                             </p>
 
                             {/* Search Bar */}
-                            <div className="relative max-w-2xl mx-auto">
+                            <div className="relative max-w-2xl mx-auto mt-10">
                                 <input
                                     type="text"
                                     placeholder="Search programs..."
