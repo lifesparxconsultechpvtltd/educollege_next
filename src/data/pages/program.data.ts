@@ -1,4 +1,4 @@
-interface ProgramPageData {
+export interface ProgramPageData {
     id: string;
     title: string;
     category: string;
