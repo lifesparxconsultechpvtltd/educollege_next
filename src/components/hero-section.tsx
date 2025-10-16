@@ -10,7 +10,7 @@ export default function Hero() {
             crossesOffset="lg:translate-y-0"
             customPaddings
             id="hero">
-            <div className="relative px-6 pt-14 lg:px-8">
+            <div className="relative px-6 pt-14 lg:px-8 max-w-6xl mx-auto">
                 <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
                         <div
                             style={{

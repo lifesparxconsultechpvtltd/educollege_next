@@ -147,7 +147,7 @@ export default function Page() {
                                                             {selectedPrograms.length > 1 && (
                                                                 <button
                                                                     onClick={() => removeProgram(program.id)}
-                                                                    className="flex-shrink-0 p-1 text-gray-400 hover:text-red-600 hover:bg-red-100 transition-all duration-200"
+                                                                    className="flex-shrink-0 p-1 text-gray-400 hover:text-red-600 hover:bg-red-100 transition-all duration-200 cursor-pointer"
                                                                     title="Remove Program"
                                                                 >
                                                                     <XMarkIcon className="h-5 w-5" />
@@ -161,7 +161,7 @@ export default function Page() {
                                                 <th className="px-6 py-5 text-center w-1/4">
                                                     <button
                                                         onClick={() => setShowAddModal(true)}
-                                                        className="inline-flex items-center justify-center space-x-2 px-4 py-3 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-all duration-200 font-medium text-sm border-2 border-dashed border-indigo-300 hover:border-indigo-400 w-full"
+                                                        className="inline-flex items-center justify-center space-x-2 px-4 py-3 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-all duration-200 font-medium text-sm border-2 border-dashed border-indigo-300 hover:border-indigo-400 w-full cursor-pointer"
                                                     >
                                                         <PlusIcon className="h-5 w-5" />
                                                         <span>Add Program</span>
@@ -294,13 +294,13 @@ export default function Page() {
                             )}
                         </div>
 
-                        <div className="px-6 py-4 border-t border-gray-200 bg-gray-50">
+                        <div className="px-6 py-4 border-t flex justify-end border-gray-200 bg-gray-50">
                             <button
                                 onClick={() => {
                                     setShowAddModal(false);
                                     setSearchTerm('');
                                 }}
-                                className="w-full px-4 py-2.5 bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors text-sm font-medium"
+                                className="w-1/4 px-4 py-2.5 cursor-pointer bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors text-sm font-medium"
                             >
                                 Cancel
                             </button>

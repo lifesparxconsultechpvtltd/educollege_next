@@ -28,26 +28,26 @@ export const university: Universities[] = [
     {
         name: 'Lovely Professional University (LPU)',
         description: 'One of India’s top private universities known for innovation and diversity.',
-        icon: '/images/lpu_logo.png',
+        icon: '/images/lpu/lpu_logo.webp',
         location: 'Phagwara, Punjab',
         naac: 'A++',
         programs: 'Engineering, Management, Law, Design, Agriculture, Arts, and more',
         established: '2005',
         address: 'Jalandhar-Delhi G.T. Road, Phagwara, Punjab 144411',
         highlights: '600-acre campus, 300+ programs, 200+ international tie-ups',
-        image: '/images/lpu.jpg'
+        image: '/images/lpu/lpu.jpg'
     },
     {
-        name: 'Amity University',
-        description: 'Leading private research university with global campuses and strong industry ties.',
-        icon: '/images/amity_logo.png',
-        location: 'Noida, Uttar Pradesh',
+        name: 'Vivekananda Global University (VGU)',
+        description: 'A leading private university in Rajasthan known for innovation, research, and holistic education.',
+        icon: '/images/vgu/vgu_logo.webp',
+        location: 'Jaipur, Rajasthan',
         naac: 'A+',
-        programs: 'Engineering, Business, Law, Biotechnology, Media, and more',
-        established: '2005',
-        address: 'Sector 125, Noida, Uttar Pradesh 201313',
-        highlights: 'Modern infrastructure, innovation-driven, strong global network',
-        image: '/images/amity_1.jpg'
+        programs: 'Engineering, Management, Law, Agriculture, Design, Science, and more',
+        established: '2012',
+        address: 'Sector 36, NRI Road, Jagatpura, Jaipur, Rajasthan 303012',
+        highlights: 'Industry-oriented curriculum, modern campus, strong placement record, international collaborations',
+        image: '/images/vgu/vgu_building.jpg'
     },
     {
         name: 'Manipal Academy of Higher Education (MAHE)',
@@ -59,19 +59,19 @@ export const university: Universities[] = [
         established: '1953',
         address: 'Tiger Circle Road, Manipal, Karnataka 576104',
         highlights: 'Top-ranked globally, diverse student body, strong research culture',
-        image: '/images/manipal.jpg'
+        image: '/images/manipal/manipal.jpg'
     },
     {
-        name: 'SRM Institute of Science and Technology',
-        description: 'Premier institute fostering innovation and high-quality research in multiple disciplines.',
-        icon: '/images/srm_logo.png',
-        location: 'Kattankulathur, Tamil Nadu',
-        naac: 'A++',
-        programs: 'Engineering, Medicine, Management, Law, Science, and Humanities',
-        established: '1985',
-        address: 'SRM Nagar, Kattankulathur, Chengalpattu, Tamil Nadu 603203',
-        highlights: 'Global collaborations, modern campus, excellent placements',
-        image: '/images/srm.jpg'
+        name: 'Chandigarh University',
+        description: 'A leading private university in North India, renowned for academic excellence, innovation, and global exposure.',
+        icon: '/images/cu/cu_log.jpeg',
+        location: 'Mohali, Punjab',
+        naac: 'A+',
+        programs: 'Engineering, Management, Law, Sciences, Arts, Pharmacy, Hotel Management, and more',
+        established: '2012',
+        address: 'NH-95, Chandigarh-Ludhiana Highway, Mohali, Punjab 140413',
+        highlights: 'World-class infrastructure, 30+ international collaborations, strong placement record, diverse student community',
+        image: '/images/cu/cu_building.jpg'
     },
 ];
 

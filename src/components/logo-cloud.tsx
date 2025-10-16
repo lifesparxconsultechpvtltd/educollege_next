@@ -3,25 +3,25 @@ import Section from "../common/section-wrapper";
 
 const LOGOS = [
     {
-        name: "Transistor",
-        gray: "https://tailwindcss.com/plus-assets/img/logos/158x48/transistor-logo-gray-900.svg",
+        name: "LPU University",
+        gray: "/images/lpu/lpu_logo.webp",
     },
     {
-        name: "Reform",
-        gray: "https://tailwindcss.com/plus-assets/img/logos/158x48/reform-logo-gray-900.svg",
+        name: "Manipal University",
+        gray: "/images/manipal/manipal_logo.png",
     },
     {
-        name: "Tuple",
-        gray: "https://tailwindcss.com/plus-assets/img/logos/158x48/tuple-logo-gray-900.svg",
+        name: "VGU University",
+        gray: "/images/vgu/vgu_logo.webp",
     },
     {
-        name: "SavvyCal",
-        gray: "https://tailwindcss.com/plus-assets/img/logos/158x48/savvycal-logo-gray-900.svg",
+        name: "Chandigarh University",
+        gray: "/images/cu/cu_logo.jpg",
     },
     {
-        name: "Statamic",
-        gray: "https://tailwindcss.com/plus-assets/img/logos/158x48/statamic-logo-gray-900.svg",
-    },
+        name: 'DY Patil University',
+        gray: '/images/dy_patil/dy_patil_logo.webp'
+    }
 ];
 
 export default function LogoCloud() {
@@ -43,13 +43,14 @@ export default function LogoCloud() {
                         <div
                             key={logo.name}
                             className="group flex justify-center items-center transition-transform duration-300 hover:scale-105"
-                            >
+                        >
                             <Image
                                 src={logo.gray}
                                 alt={logo.name}
-                                className="max-h-10 w-auto object-contain transition-opacity duration-300"
-                                width={158} height={48}
-                            />                            
+                                width={158}
+                                height={48}
+                                className="h-10 sm:h-12 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300"
+                            />
                         </div>
                     ))}
                 </div>
