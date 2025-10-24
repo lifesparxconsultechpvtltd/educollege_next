@@ -1,4 +1,4 @@
-import { AcademicCapIcon, BriefcaseIcon, ComputerDesktopIcon } from '@heroicons/react/24/outline';
+import { AcademicCapIcon, ComputerDesktopIcon } from '@heroicons/react/24/outline';
 import { FC, SVGProps } from 'react';
 
 export const navigation = [
@@ -113,7 +113,7 @@ export const programs: Program[] = [
         university: {
             id: '1',
             name: 'LPU University',
-            logo: '/images/lpu_logo.png',
+            logo: '/images/lpu/lpu_logo.webp',
         },
     },
     {
@@ -132,26 +132,7 @@ export const programs: Program[] = [
         university: {
             id: '1',
             name: 'LPU University',
-            logo: '/images/lpu_logo.png',
-        },
-    },
-    {
-        id: '3',
-        title: 'MBA (Master of Business Administration)',
-        category: 'MBA',
-        description: 'Comprehensive business education covering Strategic Management, Finance, Marketing, HR, and Entrepreneurship with industry mentorship and live case studies from top companies. Weekend LIVE sessions, guest lectures by industry leaders, and 100% placement assistance.',
-        duration: 2,
-        fees: 125000,
-        mode: 'online',
-        accreditation: ['UGC', 'NAAC A+', 'NBA'],
-        curriculum: ['Strategic Management', 'Financial Analysis', 'Digital Marketing', 'Leadership Skills', 'Business Analytics'],
-        eligibility: [`Bachelor's degree (any discipline)`, `Minimum 50% aggregate marks`],
-        featured: true,
-        icon: BriefcaseIcon,
-        university: {
-            id: '1',
-            name: 'Amity University',
-            logo: '/images/amity_logo.png',
+            logo: '/images/lpu/lpu_logo.webp',
         },
     },
     {
@@ -170,26 +151,7 @@ export const programs: Program[] = [
         university: {
             id: '1',
             name: 'Manipal University',
-            logo: '/images/manipal_logo.png',
-        },
-    },
-    {
-        id: '5',
-        title: 'BBA (Bachelor of Business Administration)',
-        category: 'BBA',
-        description: 'Foundation program in business management covering all aspects of business operations, entrepreneurship, and corporate management. Interactive learning with case studies, group projects, and industry internships included in the curriculum.',
-        duration: 3,
-        fees: 65000,
-        mode: 'online',
-        accreditation: ['UGC', 'NAAC A+'],
-        curriculum: ['Business Management', 'Marketing Fundamentals', 'Financial Accounting', 'Human Resource Management', 'Entrepreneurship'],
-        eligibility: ['10+2 from recognized board', 'Minimum 50% aggregate marks'],
-        featured: false,
-        icon: BriefcaseIcon,
-        university: {
-            id: '1',
-            name: 'SRM University',
-            logo: '/images/srm_logo.png',
+            logo: '/images/manipal/manipal_logo.png',
         },
     },
     {
@@ -208,7 +170,7 @@ export const programs: Program[] = [
         university: {
             id: '1',
             name: 'LPU University',
-            logo: '/images/lpu_logo.png',
+            logo: '/images/lpu/lpu_logo.webp',
         },
     },
 ];

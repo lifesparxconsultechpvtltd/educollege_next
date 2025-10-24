@@ -21,7 +21,7 @@ export const blogs: Blog[] = [
     slug: "process-documents-using-ai",
     title: "Process Documents Using Artificial Intelligence For RPA Bots",
     date: "April 16, 2020",
-    image: "/images/amity.jpg",
+    image: "/images/vgu/vgu_building.jpg",
     excerpt:
       "Earlier RPA bots had limitations, taking only structured data. With OCR and Machine Learning, bots can now extract unstructured data efficiently...",
     content: [
@@ -61,7 +61,7 @@ export const blogs: Blog[] = [
     slug: "future-of-online-education",
     title: "The Future of Online Education: What’s Next?",
     date: "August 8, 2024",
-    image: "/images/lpu.jpg",
+    image: "/images/lpu/lpu.jpg",
     excerpt:
       "Online education has evolved dramatically. In this article, we explore how AI and VR are reshaping learning experiences across the globe...",
     content: [
