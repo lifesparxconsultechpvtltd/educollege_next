@@ -29,7 +29,9 @@ export default function LogoCloud() {
         <Section crosses crossesOffset="lg:translate-y-0" customPaddings id="logos" className="py-12 sm:py-16">
             <div className="mx-auto max-w-5xl px-4 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:text-center mb-16">
-                    <h2 className="text-base font-semibold text-indigo-600 capitalize">DEPLOY FASTER</h2>
+                    <h2 className="text-base font-semibold text-indigo-600 capitalize">
+                        OUR PARTNERS
+                    </h2>
                     <p className="mt-2 text-xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
                         Our Trusted University
                     </p>

@@ -13,7 +13,7 @@ export default function ProgramSection() {
             customPaddings
             id="programs"
         >
-            <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="mx-auto max-w-6xl px-6 lg:px-8 overflow-hidden">
                 <div className="mx-auto grid max-w-xl grid-cols-1 gap-x-12 gap-y-16 sm:gap-y-20 lg:mx-0 
                 lg:max-w-none lg:grid-cols-2 lg:items-center">
 
@@ -92,7 +92,7 @@ export default function ProgramSection() {
                             {/* IMAGE */}
                             <Image
                                 alt="Programs Overview"
-                                src="/images/student_image.png"
+                                src="/images/student/student_image.png"
                                 width={2432}
                                 height={1442}
                                 className="w-full max-w-md shadow-2xl ring-1 ring-indigo-900/10 sm:max-w-xl lg:max-w-3xl relative z-10 bg-indigo-600"

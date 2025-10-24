@@ -52,7 +52,7 @@ export const university: Universities[] = [
     {
         name: 'Manipal Academy of Higher Education (MAHE)',
         description: 'A Deemed University recognized internationally for excellence in education and research.',
-        icon: '/images/manipal_logo.png',
+        icon: '/images/manipal/manipal_logo.png',
         location: 'Manipal, Karnataka',
         naac: 'A++',
         programs: 'Health Sciences, Engineering, Management, Humanities, and more',

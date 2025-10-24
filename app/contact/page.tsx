@@ -9,7 +9,7 @@ export default function Page() {
                 crosses
                 crossesOffset="lg:translate-y-0"
                 customPaddings
-                id="hero">
+                id="contact-hero">
                 <div className="relative px-6 pt-14 lg:px-8">
                     {/* Top Gradient Blur */}
                     <div
@@ -40,7 +40,7 @@ export default function Page() {
                                 <Link
                                     href="/programs"
                                     className="w-full sm:w-auto bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline  focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors duration-200 text-center"
-                                    >
+                                >
                                     Explore Programs
                                 </Link>
                                 <Link
@@ -55,8 +55,17 @@ export default function Page() {
 
                 </div>
             </Section>
-            <Section className="pb-24 sm:pb-32" id="contact-form" crosses crossesOffset="lg:translate-y-0">
+            <Section className="pb-12 sm:pb-32" id="contact-form" crosses crossesOffset="lg:translate-y-0">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+                        Send Us a Message
+                    </h2>
+                    <p className="mt-4 text-lg text-gray-500">
+                        We&apos;re here to help! Please fill out the form below and we&apos;ll get back to you as soon as possible.
+                    </p>
+                </div>
                 <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
                     <form className="space-y-8" action="#" method="POST">
                         {/* Name */}
                         <div className="grid grid-cols-1 sm:grid-cols-3 items-center gap-6">
