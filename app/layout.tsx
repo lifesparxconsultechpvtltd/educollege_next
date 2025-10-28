@@ -3,7 +3,8 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/src/common/Header";
 import Footer from "@/src/common/Footer";
-import ChatBot from "@/src/common/chat-bot";
+import ChatBot from "@/src/common/Bot";
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
         {children}
         <ChatBot />
         <Footer />
+
       </body>
     </html>
   );

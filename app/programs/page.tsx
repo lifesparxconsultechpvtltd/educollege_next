@@ -41,7 +41,7 @@ export default function Page() {
                             style={{
                                 clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
                             }}
-                            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                            className="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
                         />
                     </div>
 
@@ -80,7 +80,7 @@ export default function Page() {
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
                     <div className="flex flex-col lg:flex-row gap-8">
                         {/* Filters Sidebar */}
-                        <div className="lg:w-64 flex-shrink-0">
+                        <div className="lg:w-64 shrink-0">
                             <div className="border border-slate-200 rounded-none p-6 sticky top-4">
                                 <h2 className="text-lg font-semibold text-slate-900 mb-6">Filters</h2>
 
@@ -169,15 +169,15 @@ export default function Page() {
                                         {/* Program Header */}
                                         <div className="p-6 border-b border-slate-100">
                                             <div className="flex items-start gap-4">
-                                                <div className="w-12 h-12 bg-indigo-50 rounded-none flex items-center justify-center text-2xl flex-shrink-0">
-                                                    {program.icon}
-                                                </div>
+                                                {/* <div className="w-12 h-12 bg-indigo-50 rounded-none flex items-center justify-center text-2xl flex-shrink-0">
+                                                    <Icon  className="w-6 h-6 text-indigo-600" />
+                                                </div> */}
                                                 <div className="flex-1 min-w-0">                                                
                                                     <h3 className="text-lg font-semibold text-slate-900 mb-1">
                                                         {program.title}
                                                     </h3>
                                                     <div className="flex items-center gap-2 text-sm text-slate-600">
-                                                        <span className="text-xl">{program.university.logo}</span>
+                                                        {/* <span className="text-xl">{program.university.logo}</span> */}
                                                         <span>{program.university.name}</span>
                                                     </div>
                                                 </div>

@@ -130,7 +130,7 @@ export default function ChatBot() {
         matches.slice(0, 3).forEach((p, i) => {
           setTimeout(() => {
             addMessage(
-              `${p.icon} *${p.title}*\n🏛️ ${p.university.name}\n📚 ${p.duration} years | 💰 ₹${p.fees.toLocaleString()} | 📍 ${p.mode}`,
+              `${p.title}*\n🏛️ ${p.university.name}\n📚 ${p.duration} years | 💰 ₹${p.fees.toLocaleString()} | 📍 ${p.mode}`,
               'bot'
             );
           }, (i + 1) * 1500);

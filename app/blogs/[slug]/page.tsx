@@ -13,6 +13,13 @@ interface BlogPageProps {
   searchParams?: Promise<Record<string, string | string[] | undefined>>;
 }
 
+// ✅ Required for static export - generates all blog routes at build time
+export async function generateStaticParams() {
+  return blogs.map((blog) => ({
+    slug: blog.slug,
+  }));
+}
+
 // ✅ Generate SEO metadata dynamically per blog
 export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
   const { slug } = await params;
