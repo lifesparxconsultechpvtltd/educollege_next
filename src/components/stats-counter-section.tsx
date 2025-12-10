@@ -77,7 +77,9 @@ export default function StatsCounterSection() {
     return (
         <Section
             id="stats"
-            className="py-16 sm:py-20 bg-white relative overflow-hidden"
+            className="py-24 sm:py-8"
+            crosses
+            crossesOffset="lg:translate-y-0"
             customPaddings
         >
             <div ref={ref} className="max-w-6xl mx-auto px-6">
