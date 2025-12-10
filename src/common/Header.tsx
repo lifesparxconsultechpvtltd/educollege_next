@@ -16,6 +16,10 @@ export default function Header() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const pathname = usePathname();
 
+  const handleCloseMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
   const handleFormSubmit = (data: FormData) => {
     console.log("Form submitted:", Object.fromEntries(data.entries()));
     setIsFormOpen(false);
@@ -82,61 +86,77 @@ export default function Header() {
         </nav>
 
         {/* Mobile Menu */}
-        <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-          <div className="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm" aria-hidden="true" />
+        <Dialog open={mobileMenuOpen} onClose={handleCloseMenu} className="lg:hidden">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm" 
+            aria-hidden="true" 
+            onClick={handleCloseMenu}
+          />
 
-          <DialogPanel className="lg:hidden fixed inset-0 z-50 p-0! bg-black/20 backdrop-blur-sm">
-
+          <DialogPanel className="lg:hidden fixed inset-0 z-50 pointer-events-none">
             <motion.div
-              initial={{ y: -40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-              className="
-              absolute top-0 left-0 right-0
-              bg-white shadow-xl ring-1 ring-gray-900/10
-              w-full max-w-full
-              p-4
-              "
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ 
+                duration: 0.35,
+                ease: [0.32, 0.72, 0, 1]
+              }}
+              className="absolute top-0 right-0 h-full w-[280px] bg-white shadow-2xl pointer-events-auto"
             >
-              {/* Header Row */}
-              <div className="flex items-center justify-between mb-6">
-                <Link href="/" onClick={() => setMobileMenuOpen(false)}>
-                  <Image src={logo} alt="Educollege Logo" width={140} height={50} />
+              {/* Header */}
+              <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                <Link href="/" onClick={handleCloseMenu}>
+                  <Image src={logo} alt="Educollege Logo" width={120} height={40} />
                 </Link>
-
                 <button
                   type="button"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 text-gray-700"
+                  onClick={handleCloseMenu}
+                  className="p-2 text-gray-400 hover:text-gray-900 transition-colors"
                 >
                   <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
 
               {/* Links */}
-              <div className="space-y-2 py-2">
-                {navigation.map((item) => (
-                  <Link
+              <div className="p-6 space-y-1">
+                {navigation.map((item, index) => (
+                  <motion.div
                     key={item.name}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block px-3 py-2 text-base font-semibold hover:bg-gray-50"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 + 0.1, duration: 0.3 }}
                   >
-                    {item.name}
-                  </Link>
+                    <Link
+                      href={item.href}
+                      onClick={handleCloseMenu}
+                      className="block px-4 py-3 text-base font-semibold text-gray-900 hover:bg-gray-50 hover:text-indigo-600 transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
                 ))}
               </div>
 
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  setIsFormOpen(true);
-                }}
-                className="mt-6 w-full bg-indigo-600 text-white font-semibold py-2"
-              >
-                Apply Now →
-              </button>
+              {/* Apply Button */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-200">
+                <motion.button
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.25, duration: 0.3 }}
+                  onClick={() => {
+                    handleCloseMenu();
+                    setIsFormOpen(true);
+                  }}
+                  className="w-full bg-indigo-600 text-white font-semibold py-3 hover:bg-indigo-700 transition-colors"
+                >
+                  Apply Now →
+                </motion.button>
+              </div>
             </motion.div>
           </DialogPanel>
 
