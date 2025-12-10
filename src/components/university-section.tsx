@@ -1,4 +1,3 @@
-import React from 'react';
 import Section from '../common/section-wrapper';
 import { university } from '../data/hero.data';
 import Image from 'next/image';

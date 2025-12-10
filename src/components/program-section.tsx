@@ -92,7 +92,7 @@ export default function ProgramSection() {
                             {/* IMAGE */}
                             <Image
                                 alt="Programs Overview"
-                                src="/images/student/student_image.png"
+                                src="/images/student/student_image_1.png"
                                 width={2432}
                                 height={1442}
                                 className="w-full max-w-md shadow-2xl ring-1 ring-indigo-900/10 sm:max-w-xl lg:max-w-3xl relative z-10 bg-indigo-600"
@@ -107,16 +107,6 @@ export default function ProgramSection() {
                         </div>
                     </div>
                 </div>
-
-                <div className="flex justify-center mt-8 sm:mt-10 md:mt-12">
-                    <Link
-                        href="/programs"
-                        className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm sm:text-base md:text-lg px-4 sm:px-6 py-2 sm:py-3 flex items-center justify-center transition-all duration-300"
-                    >
-                        Explore More Programs
-                    </Link>
-                </div>
-
             </div>
         </Section>
     );

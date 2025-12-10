@@ -23,7 +23,6 @@ interface Universities {
     image: string;
 }
 
-
 export const university: Universities[] = [
     {
         name: 'Lovely Professional University (LPU)',
