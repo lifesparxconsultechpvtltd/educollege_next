@@ -4,7 +4,7 @@ import Section from "../common/section-wrapper";
 
 type StatItem = {
     label: string;
-    value: number;
+    value: number; 
     format?: (val: number) => string;
 };
 
